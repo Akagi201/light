@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"../light"
+	"../api"
 )
 
 type Message struct {
@@ -24,8 +24,8 @@ func handleHello(w http.ResponseWriter, r *http.Request) string {
 func main() {
 	handlers := map[string]func(http.ResponseWriter, *http.Request){}
 	handlers["/hello/"] = func(w http.ResponseWriter, r *http.Request) {
-		light.Respond(map[string]interface{}{"foo": "bar"}, handleHello)(w, r)
+		api.Respond(map[string]interface{}{"foo": "bar"}, handleHello)(w, r)
 	}
-	c := light.New("localhost", 1024, 10, handlers)
+	c := api.New("localhost", 1024, 10, handlers)
 	c.Run()
 }
