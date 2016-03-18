@@ -14,10 +14,10 @@ type Context struct {
 	Logger *log.Logger
 }
 
-func Respond(headers map[string]interface{}, fn func(w http.ResponseWriter, r *http.Request) string) http.HandlerFunc {
+func Respond(headers map[string]string, fn func(w http.ResponseWriter, r *http.Request) string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		for k, v := range headers {
-			w.Header().Set(k, v.(string))
+			w.Header().Set(k, v)
 		}
 		data := fn(w, r)
 		w.Header().Set("Content-Length", fmt.Sprintf("%d", len(data)))
