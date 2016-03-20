@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"../api"
+	"github.com/Akagi201/light/api"
 )
 
 type Message struct {
