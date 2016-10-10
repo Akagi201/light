@@ -1,20 +1,20 @@
 # light
 
-[![Build Status](https://travis-ci.org/Akagi201/light.svg?branch=master)](https://travis-ci.org/Akagi201/light)
+[![Build Status](https://travis-ci.org/Akagi201/light.svg?branch=master)](https://travis-ci.org/Akagi201/light) [![Coverage Status](https://coveralls.io/repos/github/Akagi201/light/badge.svg?branch=master)](https://coveralls.io/github/Akagi201/light?branch=master) [![Go Report Card](https://goreportcard.com/badge/github.com/Akagi201/light)](https://goreportcard.com/report/github.com/Akagi201/light) [![GoDoc](https://godoc.org/github.com/Akagi201/light?status.svg)](https://godoc.org/github.com/Akagi201/light)
 
-A minimal HTTP JSON API server in Go.
+![light](assets/light.jpeg) 
 
-![light](assets/light.jpeg)
+Light is a minimal web framework in Go.
 
 ## Features
-- [x] Unified JSON API interface.
-- [x] Support go1.7 net/context.
-- [x] Support swagger.
-- [x] API trigger event callback.
-- [x] Support mgo.
-- [x] Middleware management based on gohttp(alice + pat)
 
-## Usage
+- [x] Use [pat](https://github.com/bmizerany/pat) as http router
+- [x] Use [alice](https://github.com/justinas/alice) to manage middlewares.
 
-* `go get github.com/Akagi201/light/api`
-* `import "github.com/Akagi201/light/api"`
+## Install
+
+* `go get github.com/Akagi201/light`
+
+## Import
+
+* `import "github.com/Akagi201/light"`

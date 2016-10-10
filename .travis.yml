@@ -1,0 +1,21 @@
+language: go
+
+sudo: false
+
+go:
+  - 1.7
+  - tip
+
+install:
+  - go get -u github.com/bmizerany/pat
+  - go get -u github.com/justinas/alice
+  - go get -u github.com/ivpusic/httpcheck
+  - go get -u github.com/alecthomas/gometalinter
+  - gometalinter --install --update
+  - go get -u golang.org/x/tools/cmd/cover
+  - go get -u github.com/mattn/goveralls
+
+script:
+  - go test -v -bench=. -benchmem -cover ./...
+  - gometalinter --disable=errcheck --disable=dupl --deadline=1m ./...
+  - goveralls -v -service=travis-ci -repotoken=$COVERALLS_TOKEN
