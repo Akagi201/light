@@ -10,6 +10,7 @@ install:
   - go get -u github.com/bmizerany/pat
   - go get -u github.com/justinas/alice
   - go get -u github.com/ivpusic/httpcheck
+  - go get -u github.com/Akagi201/light
   - go get -u github.com/alecthomas/gometalinter
   - gometalinter --install --update
   - go get -u golang.org/x/tools/cmd/cover
