@@ -62,6 +62,14 @@ func (a *App) Patch(path string, h interface{}) {
 	a.mux.Patch(path, handler(h))
 }
 
+// Handle will register a pattern with a handler for All requests.
+func (a *App) Handle(path string, h interface{}) {
+	methods := []string{"HEAD", "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"}
+	for _, method := range methods {
+		a.mux.Add(method, path, handler(h))
+	}
+}
+
 // Add will register a pattern with a handler for specified method requests.
 func (a *App) Add(method, path string, h interface{}) {
 	a.mux.Add(method, path, handler(h))
