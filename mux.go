@@ -166,6 +166,14 @@ func (h *Handler) Put(pattern string, f http.HandlerFunc) {
 	h.Handle("PUT", pattern, f)
 }
 
+// HandleAll will register a pattern with a handler for All requests.
+func (h *Handler) HandleAll(pattern string, f http.HandlerFunc) {
+	methods := []string{"HEAD", "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"}
+	for _, method := range methods {
+		h.Handle(method, pattern, f)
+	}
+}
+
 // Handle registers a new request handler with the given method and pattern.
 func (h *Handler) Handle(method, pattern string, f http.Handler) {
 	h.HandleFunc(method, pattern, f.ServeHTTP)
