@@ -8,8 +8,9 @@ Light is a minimal web framework in Go.
 
 ## Features
 
-- [x] Use [pat](https://github.com/bmizerany/pat) as http router
+- [x] Use [httprouter](https://github.com/julienschmidt/httprouter) as http router
 - [x] Use [alice](https://github.com/justinas/alice) to manage middlewares.
+- [x] Support Go1.7+ `context`.
 
 ## Install
 
