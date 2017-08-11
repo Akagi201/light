@@ -7,8 +7,8 @@ import (
 	"path"
 	"strings"
 
+	"github.com/Akagi201/utilgo/chain"
 	"github.com/julienschmidt/httprouter"
-	"github.com/justinas/alice"
 )
 
 // Handler is the http request multiplexer backed by httprouter.Router.
@@ -16,7 +16,7 @@ type Handler struct {
 	prefix string            // prefix for all paths
 	routes map[string]*route // map of pattern to route for subtrees
 	router *httprouter.Router
-	chain  alice.Chain
+	chain  chain.Chain
 }
 
 type route struct {
@@ -114,7 +114,7 @@ func NewHandler(c *Config) *Handler {
 }
 
 // Use the given middleware.
-func (h *Handler) Use(mw ...alice.Constructor) {
+func (h *Handler) Use(mw ...chain.Constructor) {
 	h.chain = h.chain.Append(mw...)
 }
 
